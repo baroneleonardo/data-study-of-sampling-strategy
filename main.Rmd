@@ -1,0 +1,96 @@
+---
+title: "Data_study"
+author: "Leonardo Barone"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r intro, echo=FALSE}
+setwd("C:\\Users\\Leonardo\\Documents\\POLIMI\\Bayesian-Project\\data-study-of-sampling-strategy")
+
+source(".\\data\\exchange_data.R") # Data relate to EXCHANGE RATE
+
+# Divided data
+dati_CHF = dati_exchange[,1]
+dati_GBP = dati_exchange[,2]
+dati_USD = dati_exchange[,3]
+
+```
+
+```{r, firstdata, echo=FALSE}
+```
+
+## EXCHANGE DATA
+
+# First Trial
+
+```{r, data_1, echo=FALSE}
+load("Exchange_normal.RData")
+result_1 = result
+change_point = cumsum(result_1$final_partition)
+frequenze = result_1$frequenze
+```
+The hyperparametres are:
+```{r, data_1, echo=TRUE}
+
+```
+
+
+# Grafico Change point
+
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+# Plot the data
+plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_exchange),max(dati_exchange)))
+grid()
+lines(dati_GBP, lwd = 2, col = "darkblue")
+lines(dati_USD, lwd = 2, col = "darkgreen")
+legend(0,0, legend = c("EU/CHF", "EU/GBP", "EU/USD"), lwd = 3, 
+       cex=0.42, col = c("darkred","darkblue","darkgreen"))
+for (i in 1:length(change_point)){
+  abline(v=change_point[i])
+}
+```
+
+# Grafico frequenze change point
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+plot(frequenze, type="h")
+```
+# Second Trial
+
+```{r, data_2, echo=FALSE}
+load("prova2.RData")
+result_2 = result
+change_point = cumsum(result_2$final_partition)
+frequenze = result_2$frequenze
+```
+The hyperparametres are:
+```{r, data_1, echo=TRUE}
+
+```
+
+
+# Grafico Change point
+
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+# Plot the data
+plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_exchange),max(dati_exchange)))
+grid()
+lines(dati_GBP, lwd = 2, col = "darkblue")
+lines(dati_USD, lwd = 2, col = "darkgreen")
+legend(0,0, legend = c("EU/CHF", "EU/GBP", "EU/USD"), lwd = 3, 
+       cex=0.42, col = c("darkred","darkblue","darkgreen"))
+for (i in 1:length(change_point)){
+  abline(v=change_point[i])
+}
+```
+
+# Grafico frequenze change point
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+plot(frequenze, type="h")
+```
