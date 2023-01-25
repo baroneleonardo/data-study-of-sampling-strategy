@@ -38,6 +38,12 @@ The hyperparametres are:
 ```{r, data_1, echo=FALSE}
 print("m_0 set:")
 print(result_1$m_0)
+
+print("final partition:")
+print(result_1$final_partition)
+
+print("nu0:")
+print(result_1$nu_0)
 ```
 # Grafico Change point
 
@@ -56,7 +62,7 @@ for (i in 1:length(change_point)){
 ```
 
 # Grafico frequenze change point
-```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
 plot(frequenze, type="h")
 ```
 # Second Trial
@@ -71,6 +77,10 @@ The hyperparametres are:
 ```{r, data_1, echo=FALSE}
 print("m_0 set:")
 print(result_2$m_0)
+print("final partition:")
+print(result_2$final_partition)
+print("nu0:")
+print(result_2$nu_0)
 ```
 
 
@@ -91,6 +101,46 @@ for (i in 1:length(change_point)){
 ```
 
 # Grafico frequenze change point
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+plot(frequenze, type="h")
+```
+
+# Third trial
+
+```{r, data_2, echo=FALSE}
+load("exchange_3.RData")
+result_3 = result
+change_point = cumsum(result_3$final_partition)
+frequenze = result_3$frequenze
+```
+The hyperparametres are:
+```{r, data_1, echo=FALSE}
+print("m_0 set:")
+print(result_3$m_0)
+print("final partition:")
+print(result_3$final_partition)
+print("nu0:")
+print(result_3$nu_0)
+```
+
+# Grafico Change point
+
 ```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
+# Plot the data
+plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_exchange),max(dati_exchange)))
+grid()
+lines(dati_GBP, lwd = 2, col = "darkblue")
+lines(dati_USD, lwd = 2, col = "darkgreen")
+legend(0,0, legend = c("EU/CHF", "EU/GBP", "EU/USD"), lwd = 3, 
+       cex=0.42, col = c("darkred","darkblue","darkgreen"))
+for (i in 1:length(change_point)){
+  abline(v=change_point[i])
+}
+```
+
+
+# Grafico frequenze change point
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
 plot(frequenze, type="h")
 ```
