@@ -29,20 +29,19 @@ dati_USD = dati_exchange[,3]
 # First Trial
 
 ```{r, data_1, echo=FALSE}
-load("Exchange_normal.RData")
+load("exchange_1.RData")
 result_1 = result
 change_point = cumsum(result_1$final_partition)
 frequenze = result_1$frequenze
 ```
 The hyperparametres are:
-```{r, data_1, echo=TRUE}
-
+```{r, data_1, echo=FALSE}
+print("m_0 set:")
+print(result_1$m_0)
 ```
-
-
 # Grafico Change point
 
-```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
 # Plot the data
 plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
      ylim = c(min(dati_exchange),max(dati_exchange)))
@@ -57,26 +56,27 @@ for (i in 1:length(change_point)){
 ```
 
 # Grafico frequenze change point
-```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
 plot(frequenze, type="h")
 ```
 # Second Trial
 
 ```{r, data_2, echo=FALSE}
-load("prova2.RData")
+load("exchange_2.RData")
 result_2 = result
 change_point = cumsum(result_2$final_partition)
 frequenze = result_2$frequenze
 ```
 The hyperparametres are:
-```{r, data_1, echo=TRUE}
-
+```{r, data_1, echo=FALSE}
+print("m_0 set:")
+print(result_2$m_0)
 ```
 
 
 # Grafico Change point
 
-```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
 # Plot the data
 plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
      ylim = c(min(dati_exchange),max(dati_exchange)))
@@ -91,6 +91,6 @@ for (i in 1:length(change_point)){
 ```
 
 # Grafico frequenze change point
-```{r plot, echo=FALSE, fig.width = 8, fig.height= 2}
+```{r plot, echo=FALSE, fig.width = 8, fig.height= 3}
 plot(frequenze, type="h")
 ```
