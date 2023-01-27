@@ -63,7 +63,7 @@ for (i in 1:length(change_point)){
 ```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
 ```
-# Second Trial
+### Second Trial
 
 ```{r, data_2_load, echo=FALSE}
 load(".\\exchange-data\\exchange_2.RData")
@@ -98,7 +98,7 @@ for (i in 1:length(change_point)){
 plot(frequenze, type="h")
 ```
 
-# Third trial
+### Third trial
 
 ```{r, data_3_load, echo=FALSE}
 load(".\\exchange-data\\exchange_3.RData")
@@ -132,7 +132,7 @@ for (i in 1:length(change_point)){
 ```{r plot_3_2, echo=FALSE,fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
 ```
-# 4 trial
+### 4 trial
 
 ```{r, data_4_load, echo=FALSE}
 load(".\\exchange-data\\exchange_4.RData")
@@ -146,8 +146,8 @@ print("m_0 set:")
 print(result_4$m_0)
 print("final partition:")
 print(result_4$final_partition)
-print("nu0:")
-print(result_4$nu_0)
+print("k_0:")
+print(result_4$k_0)
 ```
 ```{r plot_4, echo=FALSE,fig.width = 12, fig.height= 4}
 # Plot the data

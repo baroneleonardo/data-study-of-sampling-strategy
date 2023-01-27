@@ -56,9 +56,9 @@ for(data in date){
 }
                           
 
-plot(casi_tot$Nord,type = "l")
-plot(casi_tot$Centro,type = "l")
-plot(casi_tot$`Sud e Isole`,type = "l")
+# plot(casi_tot$Nord,type = "l")
+# plot(casi_tot$Centro,type = "l")
+# plot(casi_tot$`Sud e Isole`,type = "l")
 
 # delete days with 0 new cases in South and Islands
 remove <- which(casi_tot$`Sud e Isole` == 0) 
@@ -73,8 +73,8 @@ casi_tot = casi_tot[-remove,]
 log_nord   = log(casi_tot$Nord/casi_tot$`Sud e Isole`)
 log_centro = log(casi_tot$Centro/casi_tot$`Sud e Isole`)
 
-plot(log_nord,type = "l", lwd = 2, col = "darkred", ylim = c(-1.5,4))
-lines(log_centro, lwd = 2)
+# plot(log_nord,type = "l", lwd = 2, col = "darkred", ylim = c(-1.5,4))
+# lines(log_centro, lwd = 2)
 
 dati_finali_log <- as.data.frame(cbind(log_nord, log_centro))
 
