@@ -30,7 +30,7 @@ dati_USD = dati_exchange[,3]
 ### First Trial
 
 ```{r, data_1_load, echo=FALSE}
-load(".\\exchange-data\\exchange_1.RData")
+load(".\\exchange-data-3var\\exchange_1.RData")
 result_1 = result
 change_point = cumsum(result_1$final_partition)
 frequenze = result_1$frequenze
@@ -66,7 +66,7 @@ plot(frequenze, type="h")
 ### Second Trial
 
 ```{r, data_2_load, echo=FALSE}
-load(".\\exchange-data\\exchange_2.RData")
+load(".\\exchange-data-3var\\exchange_2.RData")
 result_2 = result
 change_point = cumsum(result_2$final_partition)
 frequenze = result_2$frequenze
@@ -101,7 +101,7 @@ plot(frequenze, type="h")
 ### Third trial
 
 ```{r, data_3_load, echo=FALSE}
-load(".\\exchange-data\\exchange_3.RData")
+load(".\\exchange-data-3var\\exchange_3.RData")
 result_3 = result
 change_point = cumsum(result_3$final_partition)
 frequenze = result_3$frequenze
@@ -135,7 +135,7 @@ plot(frequenze, type="h")
 ### 4 trial
 
 ```{r, data_4_load, echo=FALSE}
-load(".\\exchange-data\\exchange_4.RData")
+load(".\\exchange-data-3var\\exchange_4.RData")
 result_4 = result
 change_point = cumsum(result_4$final_partition)
 frequenze = result_4$frequenze

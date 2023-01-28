@@ -1,0 +1,64 @@
+---
+title: "EXCHANGE RATE DATA ANALYSIS 2 VARIABLES"
+output: 
+  html_document: 
+    theme: sandstone
+theme: sandstone
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r intro, echo=FALSE, warning=FALSE}
+setwd("C:\\Users\\Leonardo\\Documents\\POLIMI\\Bayesian-Project\\data-study-of-sampling-strategy")
+
+source(".\\data\\exchange_data.R") # Data relate to EXCHANGE RATE
+
+# Divided data
+dati_CHF = dati_exchange[,1]
+dati_GBP = dati_exchange[,2]
+dati_USD = dati_exchange[,3]
+
+```
+
+```{r, firstdata, echo=FALSE}
+```
+
+## Study with 3 variables
+
+### First Trial
+
+```{r, data_1_load, echo=FALSE}
+load(".\\exchange-data-2var\\exchange_1.RData")
+result_1 = result
+change_point = cumsum(result_1$final_partition)
+frequenze = result_1$frequenze
+```
+The hyperparametres are:
+```{r, data_1, echo=FALSE}
+print("m_0 set:")
+print(result_1$m_0)
+
+print("final partition:")
+print(result_1$final_partition)
+
+print("nu0:")
+print(result_1$nu_0)
+```
+```{r plot_1, echo=FALSE, fig.width = 12, fig.height= 4}
+# Plot the data
+plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_exchange),max(dati_exchange)))
+grid()
+lines(dati_USD, lwd = 2, col = "darkgreen")
+legend(0,0, legend = c("EU/CHF", "EU/USD"), lwd = 3, 
+       cex=0.42, col = c("darkred","darkblue","darkgreen"))
+for (i in 1:length(change_point)){
+  abline(v=change_point[i])
+}
+```
+
+```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
+plot(frequenze, type="h")
+```
