@@ -17,7 +17,6 @@ source(".\\data\\exchange_data.R") # Data relate to EXCHANGE RATE
 
 # Divided data
 dati_CHF = dati_exchange[,1]
-dati_GBP = dati_exchange[,2]
 dati_USD = dati_exchange[,3]
 
 ```
@@ -25,7 +24,7 @@ dati_USD = dati_exchange[,3]
 ```{r, firstdata, echo=FALSE}
 ```
 
-## Study with 3 variables
+## Study with 2 variables
 
 ### First Trial
 
@@ -49,7 +48,7 @@ print(result_1$nu_0)
 ```{r plot_1, echo=FALSE, fig.width = 12, fig.height= 4}
 # Plot the data
 plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
-     ylim = c(min(dati_exchange),max(dati_exchange)))
+     ylim = c(min(dati_CHF,dati_USD),max(dati_CHF,dati_USD)))
 grid()
 lines(dati_USD, lwd = 2, col = "darkgreen")
 legend(0,0, legend = c("EU/CHF", "EU/USD"), lwd = 3, 
@@ -60,5 +59,39 @@ for (i in 1:length(change_point)){
 ```
 
 ```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
+plot(frequenze, type="h")
+```
+
+```{r, data_2_load, echo=FALSE}
+load(".\\exchange-data-2var\\exchange_2.RData")
+result_2 = result
+change_point = cumsum(result_2$final_partition)
+frequenze = result_2$frequenze
+```
+The hyperparametres are:
+```{r, data_2, echo=FALSE}
+print("m_0 set:")
+print(result_2$m_0)
+
+print("final partition:")
+print(result_2$final_partition)
+
+print("nu0:")
+print(result_2$nu_0)
+```
+```{r plot_2, echo=FALSE, fig.width = 12, fig.height= 4}
+# Plot the data
+plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_CHF,dati_USD),max(dati_CHF,dati_USD)))
+grid()
+lines(dati_USD, lwd = 2, col = "darkgreen")
+legend(0,0, legend = c("EU/CHF", "EU/USD"), lwd = 3, 
+       cex=0.42, col = c("darkred","darkblue","darkgreen"))
+for (i in 1:length(change_point)){
+  abline(v=change_point[i])
+}
+```
+
+```{r plot_2_2, echo=FALSE, fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
 ```
