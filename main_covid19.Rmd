@@ -38,19 +38,19 @@ print(result_1$m_0)
 
 ```{r plot_1, echo=FALSE, fig.width = 12, fig.height= 4}
 # Plot the data
-plot(log_nord,type = "l", lwd = 2, col = "#009999", xlab="Time", ylab="covid case",
+plot(log_nord,type = "l", lwd = 2, col = "#FF3300", xlab="Time", ylab="covid case",
      ylim = c(min(dati_finali_log),max(dati_finali_log)))
 grid()
-lines(log_centro, lwd = 2, col = "#FF3300")
-legend(0,0, legend = c("nord", "centro"), lwd = 3, 
-       cex=0.42, col = c("#009999","#FF3300"))
+lines(log_centro, lwd = 2, col = "#009999")
 for (i in 1:length(change_point)){
-  abline(v=change_point[i])
+  abline(v=change_point[i], lty=2)
 }
 ```
 
 ```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
-plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
 
 ### Second simulation:
@@ -70,17 +70,18 @@ print(result_2$m_0)
 
 ```{r plot_2, echo=FALSE, fig.width = 12, fig.height= 4}
 # Plot the data
-plot(log_nord,type = "l", lwd = 2, col = "#009999", xlab="Time", ylab="covid case",
+plot(log_nord,type = "l", lwd = 2, col = "#FF3300", xlab="Time", ylab="log-ratio",
      ylim = c(min(dati_finali_log),max(dati_finali_log)))
 grid()
-lines(log_centro, lwd = 2, col = "#FF3300")
-legend(0,0, legend = c("nord", "centro"), lwd = 3, 
-       cex=0.42, col = c("#009999","#FF3300"))
+lines(log_centro, lwd = 2, col = "#009999")
 for (i in 1:length(change_point)){
-  abline(v=change_point[i])
+  abline(v=change_point[i], lty=2, lwd = 3)
 }
 ```
 
 ```{r plot_2_2, echo=FALSE, fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```

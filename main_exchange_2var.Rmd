@@ -47,19 +47,20 @@ print(result_1$nu_0)
 ```
 ```{r plot_1, echo=FALSE, fig.width = 12, fig.height= 4}
 # Plot the data
-plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+plot(dati_CHF,type = "l", lwd = 2, col = "tomato", xlab="Time", ylab="Exchange rate",
      ylim = c(min(dati_CHF,dati_USD),max(dati_CHF,dati_USD)))
 grid()
-lines(dati_USD, lwd = 2, col = "darkgreen")
-legend(0,0, legend = c("EU/CHF", "EU/USD"), lwd = 3, 
-       cex=0.42, col = c("darkred","darkblue","darkgreen"))
-for (i in 1:length(change_point)){
-  abline(v=change_point[i])
+lines(dati_USD, lwd = 2, col = "dodgerblue")
+for (i in 1:(length(change_point)-1)){
+  abline(v=change_point[i],lwd=1.5, lty=2)
 }
 ```
 
-```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
+```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 3}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
 
 ```{r, data_2_load, echo=FALSE}
@@ -81,17 +82,18 @@ print(result_2$nu_0)
 ```
 ```{r plot_2, echo=FALSE, fig.width = 12, fig.height= 4}
 # Plot the data
-plot(dati_CHF,type = "l", lwd = 2, col = "darkred", xlab="Time", ylab="Exchange rate",
+plot(dati_CHF,type = "l", lwd = 2, col = "tomato", xlab="Time", ylab="Exchange rate",
      ylim = c(min(dati_CHF,dati_USD),max(dati_CHF,dati_USD)))
 grid()
-lines(dati_USD, lwd = 2, col = "darkgreen")
-legend(0,0, legend = c("EU/CHF", "EU/USD"), lwd = 3, 
-       cex=0.42, col = c("darkred","darkblue","darkgreen"))
-for (i in 1:length(change_point)){
+lines(dati_USD, lwd = 2, col = "dodgerblue")
+for (i in 1:(length(change_point)-1)){
   abline(v=change_point[i])
 }
 ```
 
 ```{r plot_2_2, echo=FALSE, fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```

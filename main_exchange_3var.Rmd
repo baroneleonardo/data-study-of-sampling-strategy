@@ -22,7 +22,15 @@ dati_USD = dati_exchange[,3]
 
 ```
 
-```{r, firstdata, echo=FALSE}
+```{r, firstdata, echo=FALSE,  echo=FALSE, fig.width = 12, fig.height= 4}
+plot(dati_CHF,type = "l", lwd = 2, col = "tomato", xlab="Time", ylab="Exchange rate",
+     ylim = c(min(dati_exchange),max(dati_exchange)))
+grid()
+lines(dati_GBP, lwd = 2, col = "forestgreen")
+lines(dati_USD, lwd = 2, col = "dodgerblue")
+legend(0,0, legend = c("EU/CHF", "EU/GBP", "EU/USD"), lwd = 2, 
+       cex=1.5, col = c("tomato","forestgreen","dodgerblue"))
+
 ```
 
 ## Study with 3 variables
@@ -62,6 +70,9 @@ for (i in 1:length(change_point)){
 
 ```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
 ### Second Trial
 
@@ -96,6 +107,9 @@ for (i in 1:length(change_point)){
 
 ```{r plot_2_2, echo=FALSE,fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
 
 ### Third trial
@@ -131,6 +145,9 @@ for (i in 1:length(change_point)){
 
 ```{r plot_3_2, echo=FALSE,fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
 ### 4 trial
 
@@ -165,4 +182,7 @@ for (i in 1:length(change_point)){
 
 ```{r plot_4_2, echo=FALSE,fig.width = 12, fig.height= 4}
 plot(frequenze, type="h")
+tot = sum(frequenze)
+prob = frequenze/tot
+plot(prob, type="h")
 ```
