@@ -105,7 +105,7 @@ colnames(hyp_5) <- c('theta','sigma','gamma')
 ```{r, data_6_load, echo=FALSE}
 # Prova 6
 
-load(".\\simulated-data\\timeandratio.RData")
+load(".\\simulated-data\\provavariance4.RData")
 result_6 = result
 RI_6 = result_6$Random_index
 frequenze_6=result_6$frequenze
