@@ -19,7 +19,7 @@ setwd("C:\\Users\\Leonardo\\Documents\\POLIMI\\Bayesian-Project\\data-study-of-s
 load(".\\simulated-data\\timeandratio.RData")
 result_1 = result
 RI_1 = result_1$Random_index
-
+frequenze_1=result_1$frequenze
 hyp_1 = as.data.frame(cbind(
   result_1$theta,
   result_1$sigma,
@@ -37,6 +37,7 @@ colnames(hyp_1) <- c('theta','sigma','gamma')
 load(".\\simulated-data\\provamedia.RData")
 result_2 = result
 RI_2 = result_2$Random_index
+frequenze_2=result_2$frequenze
 hyp_2 = as.data.frame(cbind(
   result_2$theta,
   result_2$sigma,
@@ -55,6 +56,7 @@ colnames(hyp_2) <- c('theta','sigma','gamma')
 load(".\\simulated-data\\provavariance.RData")
 result_3 = result
 RI_3 = result_3$Random_index
+frequenze_3=result_3$frequenze
 hyp_3 = as.data.frame(cbind(
   result_3$theta,
   result_3$sigma,
@@ -71,7 +73,7 @@ colnames(hyp_3) <- c('theta','sigma','gamma')
 load(".\\simulated-data\\provavariance1.RData")
 result_4 = result
 RI_4 = result_4$Random_index
-
+frequenze_4=result_4$frequenze
 hyp_4 = as.data.frame(cbind(
   result_4$theta,
   result_4$sigma,
@@ -88,6 +90,7 @@ colnames(hyp_4) <- c('theta','sigma','gamma')
 load(".\\simulated-data\\provavariance2.RData")
 result_5 = result
 RI_5 = result_5$Random_index
+frequenze_5=result_5$frequenze
 hyp_5 = as.data.frame(cbind(
   result_5$theta,
   result_5$sigma,
@@ -105,6 +108,7 @@ colnames(hyp_5) <- c('theta','sigma','gamma')
 load(".\\simulated-data\\timeandratio.RData")
 result_6 = result
 RI_6 = result_6$Random_index
+frequenze_6=result_6$frequenze
 hyp_6 = as.data.frame(cbind(
   result_6$theta,
   result_6$sigma,
@@ -140,5 +144,44 @@ print(sum(result_1$iteration_time))
 ```{r plot_1_2, echo=FALSE, fig.width = 12}
 
 n_clust = result_1$number_cluster
-
+hist(n_clust)
 ```
+
+#plot frequencies
+```{r plot_1f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_1=sum(frequenze_1)
+prob_1=frequenze_1/tot_1
+plot(prob_1,type="h")
+```
+#plot frequencies
+```{r plot_2f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_2=sum(frequenze_2)
+prob_2=frequenze_2/tot_2
+plot(prob_2,type="h")
+```
+#plot frequencies
+```{r plot_3f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_3=sum(frequenze_3)
+prob_3=frequenze_3/tot_3
+plot(prob_3,type="h")
+```
+#plot frequencies
+```{r plot_4f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_4=sum(frequenze_4)
+prob_4=frequenze_4/tot_4
+plot(prob_4,type="h")
+```
+#plot frequencies
+```{r plot_5f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_5=sum(frequenze_5)
+prob_5=frequenze_5/tot_5
+plot(prob_5,type="h")
+```
+#plot frequencies
+```{r plot_6f, echo=FALSE, fig.width = 12, fig.height=3}
+tot_6=sum(frequenze_6)
+prob_6=frequenze_6/tot_6
+plot(prob_6,type="h")
+```
+
+
