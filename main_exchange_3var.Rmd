@@ -68,7 +68,7 @@ for (i in 1:length(change_point)){
 }
 ```
 
-```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 4}
+```{r plot_1_2, echo=FALSE, fig.width = 12, fig.height= 3}
 plot(frequenze, type="h")
 tot = sum(frequenze)
 prob = frequenze/tot
@@ -105,7 +105,7 @@ for (i in 1:length(change_point)){
 }
 ```
 
-```{r plot_2_2, echo=FALSE,fig.width = 12, fig.height= 4}
+```{r plot_2_2, echo=FALSE,fig.width = 12, fig.height= 3}
 plot(frequenze, type="h")
 tot = sum(frequenze)
 prob = frequenze/tot
@@ -180,7 +180,7 @@ for (i in 1:length(change_point)){
 }
 ```
 
-```{r plot_4_2, echo=FALSE,fig.width = 12, fig.height= 4}
+```{r plot_4_2, echo=FALSE,fig.width = 12, fig.height= 3}
 plot(frequenze, type="h")
 tot = sum(frequenze)
 prob = frequenze/tot

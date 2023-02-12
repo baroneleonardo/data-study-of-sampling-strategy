@@ -1,0 +1,144 @@
+---
+title: "MAIN SIMULATED"
+output: 
+  html_document: 
+    theme: sandstone
+theme: sandstone
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r intro, echo=FALSE, warning=FALSE}
+setwd("C:\\Users\\Leonardo\\Documents\\POLIMI\\Bayesian-Project\\data-study-of-sampling-strategy")
+
+```
+
+# Prova 1
+```{r, data_1_load, echo=FALSE}
+load(".\\simulated-data\\timeandratio.RData")
+result_1 = result
+RI_1 = result_1$Random_index
+
+hyp_1 = as.data.frame(cbind(
+  result_1$theta,
+  result_1$sigma,
+  result_1$gamma
+))
+colnames(hyp_1) <- c('theta','sigma','gamma')
+```
+
+
+
+
+```{r, data_2_load, echo=FALSE}
+# Prova 2
+
+load(".\\simulated-data\\provamedia.RData")
+result_2 = result
+RI_2 = result_2$Random_index
+hyp_2 = as.data.frame(cbind(
+  result_2$theta,
+  result_2$sigma,
+  result_2$gamma
+))
+colnames(hyp_2) <- c('theta','sigma','gamma')
+
+```
+
+
+
+
+```{r, data_3_load, echo=FALSE}
+# Prova 3
+
+load(".\\simulated-data\\provavariance.RData")
+result_3 = result
+RI_3 = result_3$Random_index
+hyp_3 = as.data.frame(cbind(
+  result_3$theta,
+  result_3$sigma,
+  result_3$gamma
+))
+colnames(hyp_3) <- c('theta','sigma','gamma')
+
+```
+
+
+```{r, data_4_load, echo=FALSE}
+#Prova 4
+
+load(".\\simulated-data\\provavariance1.RData")
+result_4 = result
+RI_4 = result_4$Random_index
+
+hyp_4 = as.data.frame(cbind(
+  result_4$theta,
+  result_4$sigma,
+  result_4$gamma
+))
+colnames(hyp_4) <- c('theta','sigma','gamma')
+
+```
+
+
+```{r, data_5_load, echo=FALSE}
+# Prova 5
+
+load(".\\simulated-data\\provavariance2.RData")
+result_5 = result
+RI_5 = result_5$Random_index
+hyp_5 = as.data.frame(cbind(
+  result_5$theta,
+  result_5$sigma,
+  result_5$gamma
+))
+colnames(hyp_5) <- c('theta','sigma','gamma')
+
+```
+
+
+ 
+```{r, data_6_load, echo=FALSE}
+# Prova 6
+
+load(".\\simulated-data\\timeandratio.RData")
+result_6 = result
+RI_6 = result_6$Random_index
+hyp_6 = as.data.frame(cbind(
+  result_6$theta,
+  result_6$sigma,
+  result_6$gamma
+))
+colnames(hyp_6) <- c('theta','sigma','gamma')
+
+```
+
+# Random Index Plot
+
+```{r, big_plot, echo=FALSE, fig.width = 12}
+par(mfrow=c(2,3))
+plot(RI_1, type = "o", main ="")
+plot(RI_2, type = "o", main ="")
+plot(RI_3, type = "o", main ="")
+plot(RI_4, type = "o", main ="")
+plot(RI_5, type = "o", main ="")
+plot(RI_6, type = "o", main ="")
+```
+
+```{r, table, echo=FALSE, fig.width = 12}
+print("Mean time of an iteration:")
+print(mean(result_1$iteration_time))
+
+print("Total time:")
+print(sum(result_1$iteration_time))
+
+```
+
+# plot num of cluster
+
+```{r plot_1_2, echo=FALSE, fig.width = 12}
+
+n_clust = result_1$number_cluster
+
+```
